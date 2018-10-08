@@ -18,35 +18,37 @@
           <h1 class="govuk-heading-xl">Suppliers List</h1>
           <p class="govuk-body"><span class="govuk-body-l"><%= @branches.count %></span> results found within <strong><%= Branch::DEFAULT_SEARCH_RANGE_IN_MILES %> miles</strong> of <strong><%= @postcode %></strong></p>
         </div>
-        <% @branches.each do |branch| %>
-        <div class="govuk-grid-row branch">
-          <h2 class="govuk-heading-l"><%= branch.supplier.name %></h2>
-          <div class="govuk-grid-column-one-quarter">
-            <ul class="govuk-list">
-              <li><b>Branch:</b> Essex</li>
-              <li><b>Accreditation Body:</b> REC</li>
-            </ul>
+        <% if @branches.any? %>
+          <% @branches.each do |branch| %>
+          <div class="govuk-grid-row branch">
+            <h2 class="govuk-heading-l"><%= branch.supplier.name %></h2>
+            <div class="govuk-grid-column-one-quarter">
+              <ul class="govuk-list">
+                <li><b>Branch:</b> Essex</li>
+                <li><b>Accreditation Body:</b> REC</li>
+              </ul>
+            </div>
+            <div class="govuk-grid-column-one-quarter">
+              <p class="govuk-body">
+                Monica Silva<br />
+                08456 026 707<br />
+                <a href="mailto:monica@pureeducation.co.uk">monica@pureeducation.co.uk</a>
+              </p>
+            </div>
+            <div class="govuk-grid-column-one-quarter markup">
+              <p class="govuk-body govuk-!-font-size-48">
+                8%
+              </p>
+              <p class="govuk-body-s">Agency Markup</p>
+            </div>
+            <div class="govuk-grid-column-one-quarter">
+              <p class="govuk-body govuk-!-font-size-48">
+                7.2
+              </p>
+              <p class="govuk-body-s">miles</p>
+            </div>
           </div>
-          <div class="govuk-grid-column-one-quarter">
-            <p class="govuk-body">
-              Monica Silva<br />
-              08456 026 707<br />
-              <a href="mailto:monica@pureeducation.co.uk">monica@pureeducation.co.uk</a>
-            </p>
-          </div>
-          <div class="govuk-grid-column-one-quarter markup">
-            <p class="govuk-body govuk-!-font-size-48">
-              8%
-            </p>
-            <p class="govuk-body-s">Agency Markup</p>
-          </div>
-          <div class="govuk-grid-column-one-quarter">
-            <p class="govuk-body govuk-!-font-size-48">
-              7.2
-            </p>
-            <p class="govuk-body-s">miles</p>
-          </div>
-        </div>
+          <% end %>
         <% end %>
       </div>
     </div>
