@@ -20,4 +20,6 @@ Rails.application.routes.draw do
 
   get '/:slug', to: 'search#question', as: 'search_question'
   get '/:slug/answer', to: 'search#answer', as: 'search_answer'
+
+  get 'auth/cognito/callback' => 'auth#callback'
 end
