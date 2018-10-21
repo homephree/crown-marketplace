@@ -23,5 +23,6 @@ Rails.application.routes.draw do
   get '/:slug/answer', to: 'search#answer', as: 'search_answer'
 
   get 'auth/cognito/callback' => 'auth#callback'
+  get 'auth/cognito/logout' => 'auth#logout', as: :logout
   get 'auth/cognito', as: :login
 end
