@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  get '/', to: 'home#index', as: :homepage
+  get '/', to: 'home#gateway', as: :gateway
+  get '/start', to: 'home#index', as: :homepage
   get '/status', to: 'home#status'
 
   resources :branches, only: :index
@@ -22,4 +23,5 @@ Rails.application.routes.draw do
   get '/:slug/answer', to: 'search#answer', as: 'search_answer'
 
   get 'auth/cognito/callback' => 'auth#callback'
+  get 'auth/cognito', as: :login
 end
