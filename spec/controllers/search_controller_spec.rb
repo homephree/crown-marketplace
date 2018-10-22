@@ -2,6 +2,19 @@ require 'rails_helper'
 
 RSpec.describe SearchController, type: :controller do
   describe 'GET #question for looking-for' do
+    context 'when not logged in' do
+      before do
+        ensure_not_logged_in
+      end
+
+      it 'redirects to gateway page' do
+        get :question, params: {
+          slug: 'hire-via-agency'
+        }
+        expect(response).to redirect_to(gateway_path)
+      end
+    end
+
     it 'renders template' do
       get :question, params: {
         slug: 'looking-for'
