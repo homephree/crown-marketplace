@@ -110,7 +110,6 @@ en:
   layouts:
     application:
       back: Back
-      beta: beta
       feedback_html: This is a new service – your %{link} will help us to improve it.
       having_problems: Having problems using this service?
       skip: Skip to main content
